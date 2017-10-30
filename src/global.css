@@ -10,7 +10,7 @@
     user-select: none;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    font-family: "Noto Sans CJK", "Microsoft YaHei", "Microsoft YaHei UI", -apple-system, BlinkMacSystemFont, "Helvetica", "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
+    font-family: "Noto Sans CJK SC", "Microsoft YaHei", "Microsoft YaHei UI", -apple-system, BlinkMacSystemFont, "Helvetica", "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
     text-shadow: 0.01em 0.01em 0.01em #999999 !important;
 }
 
@@ -33,11 +33,11 @@ body {
 }
 
 header .handle-bar {
-    width: calc(100vw - 332px);
+    width: calc(100vw - 432px);
     position: absolute;
     height: 32px;
     top: 0px;
-    left: 150px;
+    left: 200px;
     -webkit-app-region: drag;
 }
 
