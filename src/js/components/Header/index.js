@@ -140,6 +140,8 @@ class Header extends Component {
                     }
                 </div>
 
+                <div className="handle-bar" />
+
                 <div>
                     {
                         this.renderFollow()

@@ -26,8 +26,17 @@ body {
     color: #fff;
     overflow-y: hidden;
     font-size: 13px;
-    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK", "Microsoft YaHei UI", "Helvetica", "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK", "Microsoft YaHei UI", "HelveticaNeue-UltraLight", "Helvetica", "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-app-region: no-drag;
+}
+
+header .handle-bar {
+    width: calc(100vw - 332px);
+    position: absolute;
+    height: 32px;
+    top: 0px;
+    left: 150px;
+    -webkit-app-region: drag;
 }
 
 .scroll-horizontal {
