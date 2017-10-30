@@ -162,6 +162,13 @@ class Header extends Component {
                         style={{
                             color: this.props.color,
                         }} />
+
+                    <i
+                        className="ion-android-close"
+                        onClick={e => ipcRenderer.send('goodbye')}
+                        style={{
+                            color: this.props.color,
+                        }} />
                 </div>
             </header>
         );
