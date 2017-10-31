@@ -81,9 +81,9 @@ $ pacman -S iease-music-git
 ```
 
 #### Windows(Windows 7+ are supported, 64-bit only)
-```
+
 [Download](https://github.com/Acris/ieaseMusic/releases/download/v1.0.1/ieaseMusic-1.0.1-win.exe) the `.exe` file, or build by yourself.
-```
+
 
 ## Screenshots
 
