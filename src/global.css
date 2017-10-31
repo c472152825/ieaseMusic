@@ -33,11 +33,11 @@ body {
 }
 
 header .handle-bar {
-    width: calc(100vw - 432px);
+    width: calc(100vw - 532px);
     position: absolute;
     height: 32px;
     top: 0px;
-    left: 200px;
+    left: 250px;
     -webkit-app-region: drag;
 }
 
