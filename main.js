@@ -1,5 +1,5 @@
 
-import { app, BrowserWindow, Menu, Tray, globalShortcut, ipcMain, shell } from 'electron';
+import { app, BrowserWindow, Menu, Tray, globalShortcut, ipcMain, shell, powerMonitor } from 'electron';
 import windowStateKeeper from 'electron-window-state';
 import storage from 'electron-json-storage';
 import axios from 'axios';
@@ -332,6 +332,40 @@ let trayMenu = [
         }
     }
 ];
+let dockMenu = [
+    {
+        label: 'Toggle Player',
+        accelerator: 'Space',
+        click() {
+            mainWindow.show();
+            mainWindow.webContents.send('player-toggle');
+        }
+    },
+    {
+        label: 'Next',
+        accelerator: 'Right',
+        click() {
+            mainWindow.show();
+            mainWindow.webContents.send('player-next');
+        }
+    },
+    {
+        label: 'Previous',
+        accelerator: 'Left',
+        click() {
+            mainWindow.show();
+            mainWindow.webContents.send('player-previous');
+        }
+    },
+    {
+        label: 'Like',
+        accelerator: 'Cmd+L',
+        click() {
+            mainWindow.show();
+            mainWindow.webContents.send('player-like');
+        }
+    },
+];
 
 function updateMenu(playing) {
     if (!isOsx) {
@@ -509,6 +543,11 @@ const createMainWindow = () => {
         app.quit();
     });
 
+    // App has suspend
+    powerMonitor.on('suspend', () => {
+        mainWindow.webContents.send('player-pause');
+    });
+
     if (isOsx) {
         // App about
         app.setAboutPanelOptions({
@@ -519,6 +558,7 @@ const createMainWindow = () => {
             version: pkg.version
         });
         app.dock.setIcon(`${__dirname}/src/assets/dock.png`);
+        app.dock.setMenu(Menu.buildFromTemplate(dockMenu));
     }
 
     updateMenu();
