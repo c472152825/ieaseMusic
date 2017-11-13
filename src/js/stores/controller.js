@@ -89,7 +89,7 @@ class Controller {
 
     @action async resolveSong() {
         var song = self.song;
-        var response = await axios.get(`/api/player/song/${song.id}/${song.name}/${song.artists.map(e => e.name).join(',')}/${preferences.highquality}`);
+        var response = await axios.get(`/api/player/song/${song.id}/${song.name}/${song.artists.map(e => e.name).join(',')}/${preferences.highquality}?` + +new Date());
         var data = response.data.song;
 
         if (!data.src) {
@@ -101,13 +101,19 @@ class Controller {
         self.song = Object.assign({}, self.song, { data });
     }
 
-    @action async next() {
+    @action async next(loop = false) {
         var songs = self.playlist.songs;
         var history = self.history;
         var index = history.indexOf(self.song.id);
         var next;
 
         switch (true) {
+            case loop === true
+                    && self.mode === PLAYER_LOOP:
+                // Fix https://github.com/trazyn/ieaseMusic/issues/68
+                next = self.song.id;
+                break;
+
             case self.playlist.id === 'PERSONAL_FM':
                 fm.next();
                 return;
@@ -190,7 +196,7 @@ class Controller {
         });
     }
 
-    @action changeMode(mode) {
+    @action changeMode(mode = PLAYER_REPEAT) {
         var index = MODES.indexOf(self.mode);
 
         if (MODES.includes(mode)) {
@@ -202,9 +208,6 @@ class Controller {
                 self.mode = PLAYER_SHUFFLE;
             }
         }
-
-        // Looping ...
-        document.querySelector('audio').loop = self.mode === PLAYER_LOOP;
     }
 }
 

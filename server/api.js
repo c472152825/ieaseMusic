@@ -88,9 +88,6 @@ app.use('/like', require('../NeteaseCloudMusicApi/router/like'));
 
 app.use('/likelist', require('../NeteaseCloudMusicApi/router/likelist'));
 
-// 手机登录
-app.use('/login/cellphone', require('../NeteaseCloudMusicApi/router/loginCellphone'));
-
 // 登录刷新
 app.use('/login/refresh', cache('1 hour', onlyStatus200), require('../NeteaseCloudMusicApi/router/login_refresh'));
 
@@ -246,6 +243,7 @@ app.use('/follow', require('./api/follow'));
 app.use('/unfollow', require('./api/unfollow'));
 app.use('/sub', require('./api/sub'));
 app.use('/unsub', require('./api/unsub'));
+app.use('/login/cellphone', require('./api/loginCellphone'));
 app.use('/login', require('./api/login'));
 
 app.use('/api/home', cache('5 minutes', onlyStatus200), require('./router/home'));
@@ -256,8 +254,10 @@ app.use('/api/top', cache('1 hour', onlyStatus200), require('./router/top'));
 app.use('/api/playlist', cache('10 minutes', onlyStatus200), require('./router/playlist'));
 app.use('/api/fm', require('./router/fm'));
 app.use('/api/search', require('./router/search'));
+app.use('/api/comments', require('./router/comments'));
 
 if (process.env.AUTORUN) {
+    console.log(`API Server run with port: ${port}`);
     app.listen(port);
 }
 
