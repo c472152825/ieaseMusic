@@ -4,7 +4,9 @@ import { ipcRenderer } from 'electron';
 import axios from 'axios';
 
 import fm from './fm';
+import comments from './comments';
 import preferences from './preferences';
+import lastfm from 'utils/lastfm';
 
 const PLAYER_SHUFFLE = 0;
 const PLAYER_REPEAT = 1;
@@ -82,14 +84,16 @@ class Controller {
             song,
         });
 
+        comments.getList(song);
         self.song = song;
         self.playing = true;
         await self.resolveSong();
+        await lastfm.playing(song);
     }
 
     @action async resolveSong() {
         var song = self.song;
-        var response = await axios.get(`/api/player/song/${song.id}/${song.name}/${song.artists.map(e => e.name).join(',')}/${preferences.highquality}?` + +new Date());
+        var response = await axios.get(`/api/player/song/${song.id}/${encodeURIComponent(song.name)}/${encodeURIComponent(song.artists.map(e => e.name).join(','))}/${preferences.highquality}?` + +new Date());
         var data = response.data.song;
 
         if (!data.src) {

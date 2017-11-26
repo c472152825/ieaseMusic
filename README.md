@@ -33,6 +33,7 @@
 - Desktop notifications
 - Modern UI design
 - High quality music(FLAC)
+- Track your listen to Last.fm
 - Fix dead music link [#3](https://github.com/trazyn/ieaseMusic/issues/3)(QQ music and Kugou music, need more)
 - 就这些吧，编不下去了
 
@@ -47,24 +48,24 @@
 Download the last version on the [website](https://github.com/trazyn/ieaseMusic/releases/latest) or below.
 
 #### Mac(10.9+)
-[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.3/ieaseMusic-1.0.3-mac.dmg) the `.dmg` file, Or use `homebrew`:
+[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.5/ieaseMusic-1.0.5-mac.dmg) the `.dmg` file, Or use `homebrew`:
 ```
 brew cask install ieasemusic
 ```
 
 #### Linux
 
-[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.3/ieaseMusic-1.0.3-linux-amd64.deb) the `.deb` file for 'Debian / Ubuntu':
+[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.5/ieaseMusic-1.0.5-linux-amd64.deb) the `.deb` file for 'Debian / Ubuntu':
 ```
 $ sudo dpkg -i ieaseMusic-0.0.5-linux-amd64.deb
 ```
 
-[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.3/ieaseMusic-1.0.3-linux-x86_64.rpm) the `.rpm` file for 'Centos/RHEL':
+[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.5/ieaseMusic-1.0.5-linux-x86_64.rpm) the `.rpm` file for 'Centos/RHEL':
 ```
 $ sudo yum localinstall ieaseMusic-0.0.5-linux-x86_64.rpm
 ```
 
-[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.3/iease-music-1.0.3-x86_64.AppImage) the `.Appimage` file for other distribution:
+[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.5/iease-music-1.0.5-x86_64.AppImage) the `.Appimage` file for other distribution:
 ```
 $ chmod u+x iease-music-0.0.5-x86_64.AppImage
 $ ./iease-music-0.0.5-x86_64.AppImage
@@ -164,15 +165,16 @@ export default async(keyword, artists) => {
 - [x] User
 - [x] Artist
 - [x] Album
-- [ ] Login with email
 - [x] Search
 - [x] Login
 - [x] Pllylist subscribe
 - [x] Follow
 - [x] Flac high quality audio
 - [x] Fix dead music link([#3](https://github.com/trazyn/ieaseMusic/issues/3))
-- [ ] Scrobble to Last.fm
-- [ ] Comment（貌似很多人讨厌评论啊）
+- [x] Scrobble to Last.fm
+- [x] Comment（Read only）
+- [ ] Lyrics
+- [ ] Auto update
 - [ ] Website
 
 ## 参考列表

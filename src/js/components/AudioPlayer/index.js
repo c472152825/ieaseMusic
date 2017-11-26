@@ -4,6 +4,7 @@ import { inject, observer } from 'mobx-react';
 import { ipcRenderer } from 'electron';
 
 import helper from 'utils/helper';
+import lastfm from 'utils/lastfm';
 
 @inject(stores => ({
     song: stores.controller.song,
@@ -12,13 +13,16 @@ import helper from 'utils/helper';
     playing: stores.controller.playing,
     volume: stores.preferences.volume,
     setVolume: stores.preferences.setVolume,
+    autoPlay: stores.preferences.autoPlay,
 }))
 @observer
 export default class AudioPlayer extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.playing !== this.props.playing) {
             try {
-                if (!this.refs.player.src) {
+                if (!this.refs.player.src
+                    // Avoid init player duplicate play
+                    && !this.props.autoPlay) {
                     this.props.play();
                 } else {
                     this.refs.player[nextProps.playing ? 'play' : 'pause']();
@@ -101,7 +105,7 @@ export default class AudioPlayer extends Component {
     }
 
     render() {
-        var song = this.props.song.data || {};
+        var song = this.props.song;
 
         /* eslint-disable */
         return (
@@ -111,6 +115,7 @@ export default class AudioPlayer extends Component {
                     this.passed = 0, this.progress();
                 }}
                 onEnded={e => {
+                    lastfm.scrobble(song);
                     this.passed = 0, this.props.next(true);
                 }}
                 onError={e => console.log(e)}
@@ -118,7 +123,7 @@ export default class AudioPlayer extends Component {
                 onSeeked={e => this.resetProgress()}
                 onTimeUpdate={e => this.progress(e.target.currentTime)}
                 ref="player"
-                src={song.src}
+                src={(song.data || {}).src}
                 style={{
                     display: 'none'
                 }} />
