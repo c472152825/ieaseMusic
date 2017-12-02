@@ -48,27 +48,27 @@
 Download the last version on the [website](https://github.com/trazyn/ieaseMusic/releases/latest) or below.
 
 #### Mac(10.9+)
-[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.5/ieaseMusic-1.0.5-mac.dmg) the `.dmg` file, Or use `homebrew`:
+[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.6/ieaseMusic-1.0.6-mac.dmg) the `.dmg` file, Or use `homebrew`:
 ```
 brew cask install ieasemusic
 ```
 
 #### Linux
 
-[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.5/ieaseMusic-1.0.5-linux-amd64.deb) the `.deb` file for 'Debian / Ubuntu':
+[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.6/ieaseMusic-1.0.6-linux-amd64.deb) the `.deb` file for 'Debian / Ubuntu':
 ```
-$ sudo dpkg -i ieaseMusic-0.0.5-linux-amd64.deb
-```
-
-[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.5/ieaseMusic-1.0.5-linux-x86_64.rpm) the `.rpm` file for 'Centos/RHEL':
-```
-$ sudo yum localinstall ieaseMusic-0.0.5-linux-x86_64.rpm
+$ sudo dpkg -i ieaseMusic-1.0.6-linux-amd64.deb
 ```
 
-[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.5/iease-music-1.0.5-x86_64.AppImage) the `.Appimage` file for other distribution:
+[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.6/ieaseMusic-1.0.6-linux-x86_64.rpm) the `.rpm` file for 'Centos/RHEL':
 ```
-$ chmod u+x iease-music-0.0.5-x86_64.AppImage
-$ ./iease-music-0.0.5-x86_64.AppImage
+$ sudo yum localinstall ieaseMusic-1.0.6-linux-x86_64.rpm
+```
+
+[Download](https://github.com/trazyn/ieaseMusic/releases/download/v1.0.6/iease-music-1.0.6-x86_64.AppImage) the `.Appimage` file for other distribution:
+```
+$ chmod u+x iease-music-1.0.6-x86_64.AppImage
+$ ./iease-music-1.0.6-x86_64.AppImage
 ```
 
 Archlinux `pacman` install:
@@ -173,7 +173,7 @@ export default async(keyword, artists) => {
 - [x] Fix dead music link([#3](https://github.com/trazyn/ieaseMusic/issues/3))
 - [x] Scrobble to Last.fm
 - [x] Comment（Read only）
-- [ ] Lyrics
+- [x] Lyrics
 - [ ] Auto update
 - [ ] Website
 
@@ -185,3 +185,9 @@ export default async(keyword, artists) => {
 
 ## License
 还是 MIT 吧，懒得改了
+
+#### If you like my works you can buy me a coffee
+<span>
+<img src="https://github.com/trazyn/ieaseMusic/blob/master/resource/alipay.JPG" width="300" />
+<img src="https://github.com/trazyn/ieaseMusic/blob/master/resource/wechat.JPG" width="300" />
+</span>
