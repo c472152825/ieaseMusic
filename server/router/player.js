@@ -120,7 +120,7 @@ async function getAlbumBySong(id) {
 async function getFlac(name, artists) {
     var response = await axios.get('http://sug.music.baidu.com/info/suggestion', {
         params: {
-            word: name,
+            word: [name].concat(artists.split(',')).join('+'),
             version: 2,
             from: 0,
         }
@@ -221,7 +221,7 @@ router.get('/song/:id/:name/:artists/:flac?', cache('3 minutes', onlyStatus200),
             }
         }
     } catch (ex) {
-        debug('Failed to get flac file: %O', ex);
+        error('Failed to get flac file: %O', ex);
     }
 
     try {
@@ -249,7 +249,8 @@ router.get('/song/:id/:name/:artists/:flac?', cache('3 minutes', onlyStatus200),
             debug('Search: %s, %s', name, artists);
             song = await search(name, artists);
         } catch (ex) {
-            error('Failed to get song URL: %O', ex);
+            error('Failed to search third party music library:\n%O', ex);
+            error(ex[0].config.headers);
         }
     }
 
