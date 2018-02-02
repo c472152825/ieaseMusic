@@ -49,9 +49,6 @@ app.use('/comment/album', require('../NeteaseCloudMusicApi/router/comment_album'
 
 app.use('/comment/playlist', require('../NeteaseCloudMusicApi/router/comment_playlist'));
 
-// 未知 api
-app.use('/comment/like', require('../NeteaseCloudMusicApi/router/comment_like'));
-
 app.use('/comment/dj', require('../NeteaseCloudMusicApi/router/comment_dj'));
 
 // 签到
@@ -233,6 +230,7 @@ app.use('/user/subcount', require('../NeteaseCloudMusicApi/router/user_subcount'
 app.use('/user/record', require('../NeteaseCloudMusicApi/router/user_playrecord'));
 
 // New added
+app.use('/thumbsup', require('./api/thumbsup'));
 app.use('/hot/album', require('./api/hot_album'));
 app.use('/subscribe', require('./api/subscribe'));
 app.use('/unsubscribe', require('./api/unsubscribe'));
@@ -243,7 +241,7 @@ app.use('/unsub', require('./api/unsub'));
 app.use('/login/cellphone', require('./api/loginCellphone'));
 app.use('/login/refresh', cache('1 hour', onlyStatus200), require('./api/login_refresh'));
 app.use('/login', require('./api/login'));
-app.use('/count', require('./api/count'));
+app.use('/scrobble', require('./api/scrobble'));
 
 app.use('/api/home', require('./router/home'));
 app.use('/api/player', require('./router/player'));
